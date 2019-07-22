@@ -1,5 +1,4 @@
-class LinksController < ApplicationController
-
+class LinksController < ApplicationController 
    skip_before_action :verify_authenticity_token
    def create
      @link = Link.new
@@ -7,7 +6,7 @@ class LinksController < ApplicationController
      if @link.save
        redirect_to show_path(@link.id)
      else
-       render 'pages/home'
+       redirect_to root_path
      end 
    end
    def show
