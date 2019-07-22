@@ -4,15 +4,19 @@ class LinksController < ApplicationController
      @link = Link.new
      @link.url = params[:url]
      if @link.save
-       redirect_to show_path(@link.id)
+        # loclhost/show?link=2
+       redirect_to root_path({link_id: @link.id})
      else
-       redirect_to root_path
+      flash[:error] = 'This string is not a URL'
+      redirect_to root_path
      end 
    end
-   def show
-      @link= Link.find(params[:id])
-      host = request.host_with_port
-      @original_url = @link.url
-      @shorten_url = host + '/' + @link.short_url
+
+   def redirect
+      shorten_url = params[:short_url]
+      @bink = shorten_url.split('/')[3]
+      source = Link.find_by(short_url: shorten_url.split('/')[3] )
+      redirect_to source.url
    end
+   
 end
