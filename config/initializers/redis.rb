@@ -1,0 +1,1 @@
+$redis = Redis::Namespace.new('Url_short', :redis => Redis.new)

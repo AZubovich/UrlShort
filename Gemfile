@@ -9,6 +9,16 @@ gem 'jquery-rails'
 
 gem 'sassc'
 
+gem 'redis'
+
+gem "haml-rails", "~> 2.0"
+
+gem 'redis-namespace'
+
+gem 'redis-rails'
+
+gem 'redis-rack-cache'
+
 gem 'sassc-rails'
 
 gem 'validate_url'
