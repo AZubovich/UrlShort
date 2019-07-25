@@ -9,9 +9,8 @@
       .submit_div
         = submit_tag "Short", :class => "btn btn-primary", :style => "width:120px;height:60px;"
 %center
-  - if params[:short_url] != nil
+  - unless params[:short_url].nil?
     %h2
       Your original url is: #{@original_url}
     %h2
-      Your shortened url is: #{link_to @shorten_url , redirect_path(:short_url => @shorten_url)}
-  %center
+      Your shortened url is: #{link_to @shorten_url , redirect_path(short_url: @shorten_url)}

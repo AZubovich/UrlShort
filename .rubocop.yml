@@ -1,7 +1,15 @@
 Documentation:
     Enabled: false
+
 Metrics/LineLength:
   Max: 100
+  
+Metrics/ClassLength:
+Enabled: false
+
+Style/FrozenStringLiteralComment:
+Enabled: false
+
 AllCops:
   Exclude:
     - 'db/**/*'

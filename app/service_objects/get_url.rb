@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class GetUrl
   def initialize(param)
     @param = param
@@ -11,11 +9,13 @@ class GetUrl
 
   private
 
+  attr_accessor :param
+
   def old_url
-    MyRedis.instance.get(@param)
+    RedisBase.instance.get(param)
   end
 
   def get_short_url(host)
-    'http://' + host + '/' + @param
+    'http://' + host + '/' + param
   end
 end

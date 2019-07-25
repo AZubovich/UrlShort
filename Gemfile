@@ -1,26 +1,26 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+# ruby version used
 ruby '2.6.3'
-
+# Add bootstrap to our rails app
 gem 'bootstrap', '~> 4.3.1'
-
+# Add jquery lib in your rails app
 gem 'jquery-rails'
-
+# Change css to sass
 gem 'sassc'
-
+# Use redis in your app
 gem 'redis'
-
+# To reconvert erb2haml
 gem "haml-rails", "~> 2.0"
-
+# Provides an interface to a namespaced subset of your redis keyspace
 gem 'redis-namespace'
-
+# Full stores for rails
 gem 'redis-rails'
-
+# Provides a Redis backed store for Rack::Cache, an HTTP cache
 gem 'redis-rack-cache'
-
+# Use sass in your app
 gem 'sassc-rails'
-
+# Gem for validate your url
 gem 'validate_url'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -58,6 +58,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Use rspec for tests
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
