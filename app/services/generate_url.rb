@@ -1,8 +1,8 @@
 class GenerateUrl
   def perform
     gen_url = generate_short_url
-    base_url = RedisBase.instance.get(@gen_url)
-    if !base_url.nil?
+    base_url = RedisBase.instance.get(gen_url)
+    unless base_url.nil?
       perform
     else
       gen_url
