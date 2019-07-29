@@ -8,6 +8,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # Change css to sass
 gem 'sassc'
+# Add Travis CI services
+gem 'travis'
 # Use redis in your app
 gem 'redis'
 # To reconvert erb2haml
