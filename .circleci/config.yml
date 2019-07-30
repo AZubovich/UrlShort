@@ -17,6 +17,11 @@ references:
       POSTGRES_USER: Url_short
       POSTGRES_DB: Url_short_test
       POSTGRES_PASSWORD: ""
+      
+dependencies:
+  pre:
+    - echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
+    - gem install bundler
 
 jobs:
   build:
