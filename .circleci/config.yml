@@ -97,5 +97,8 @@ workflows:
     jobs:
       - build
       - test:
+          filters:
+            branches:
+              only: redis_haml
           requires:
             - build
