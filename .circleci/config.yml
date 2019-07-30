@@ -17,7 +17,7 @@ references:
       POSTGRES_USER: Url_short
       POSTGRES_DB: Url_short_test
       POSTGRES_PASSWORD: ""
-      
+
 dependencies:
   pre:
     - echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
@@ -31,9 +31,6 @@ jobs:
     steps:
       - checkout
       # Which version of bundler?
-      - run:
-          name: Which bundler?
-          command: bundle -v
       # bundle cache
       - restore_cache:
           keys:
@@ -42,6 +39,9 @@ jobs:
       - run:
           name: Bundle Install
           command: bundle check || bundle install
+      - run:
+          name: Which bundler?
+          command: bundle -v
       # Store bundle cache
       - save_cache:
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
