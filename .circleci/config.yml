@@ -17,10 +17,6 @@ references:
       POSTGRES_USER: Url_short
       POSTGRES_DB: Url_short_test
       POSTGRES_PASSWORD: ""
-dependencies:
-  pre:
-    - echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
-    - gem install bundler
 
 jobs:
   build:
@@ -30,15 +26,17 @@ jobs:
     steps:
       - checkout
       # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
       # bundle cache
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
             - rails-demo-bundle-v2-
-      - run: |
-          sudo mv /usr/local/lib/ruby/gems/2.6.3/specifications/{default/,}bundler-2.0.2.gemspec
-          sudo gem uninstall bundler -a -x
-          sudo gem install bundler --version 2.0.2
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
       # Store bundle cache
       - save_cache:
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
