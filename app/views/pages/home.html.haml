@@ -1,0 +1,16 @@
+%h1.header URL Shorten Application
+.form_div
+  = form_tag(links_create_path, method: :post) do
+    - flash.each do |name, msg|
+      .alert.alert-danger{:role => "alert"}
+        = msg
+    .main-divv
+      = text_field_tag :url ,"", :class => "form-control"
+      .submit_div
+        = submit_tag "Short", :class => "btn btn-primary", :style => "width:120px;height:60px;"
+%center
+  - unless params[:short_url].nil?
+    %h2
+      Your original url is: #{@original_url}
+    %h2
+      Your shortened url is: #{link_to @shorten_url , redirect_path(short_url: @shorten_url)}
