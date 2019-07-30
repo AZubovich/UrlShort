@@ -11,7 +11,6 @@ references:
       PGUSER: Url_short
       PGPASSWORD: ""
       RAILS_ENV: test
-    image: redis
   postgres: &postgres
     image: circleci/postgres:10.9-ubuntu
     environment:
@@ -22,6 +21,7 @@ references:
 jobs:
   build:
     docker:
+      - image: redis
       - *default_docker_ruby_executor
     steps:
       - checkout
